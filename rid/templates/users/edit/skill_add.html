@@ -1,0 +1,22 @@
+{% extends "users/edit/base.html" %}
+{% block edit_title %} Technical Skills &raquo; Add {% endblock %}
+{% block edit_title1 %} Technical Skills &raquo; Add {% endblock %}
+{% block edit_icon %} tree {% endblock %}
+{% block skills %} active {% endblock %}
+{% block edit_body %}
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="ui form">
+    
+    <div class="field">
+      <label> Skill Name </label>
+      {{ form.title }}
+    </div>
+    <div class="field">
+      <button type="submit" class="ui mini button green"><i class="icon plus"> </i>Add Skill  </button>
+      <a class="ui button blue mini" style="float:right;" href="./" > <i class="icon undo"></i> Update Skills </a>	      
+    </div>
+  </div>
+</form>
+
+{% endblock %}

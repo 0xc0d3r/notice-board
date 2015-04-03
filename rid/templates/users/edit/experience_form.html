@@ -1,0 +1,43 @@
+{% extends "users/edit/base.html" %}
+{% block edit_title %} Experiences &raquo; {% if not object.pk %} Add New {% else %} Update #{{object.pk}} {% endif %} {% endblock %}
+{% block edit_title1 %} Experiences &raquo; {% if not object.pk %} Add New {% else %} Update #{{object.pk}} {% endif %} {% endblock %}
+{% block edit_icon %} flag {% endblock %}
+{% block experience %} active {% endblock %}
+{% block edit_body %}
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="ui form">
+    
+    <div class="two fields">
+      <div class="field">
+        <label>Organization Name </label>
+        {{ form.organization }}
+      </div>
+      <div class="field">
+	       <label> Title / Position  </label>
+  	     {{ form.title }}
+      </div>
+    </div>
+
+    <div class="two fields">
+      <div class="field">
+	       <label> Location   </label>
+	         {{ form.location }}
+      </div>
+      <div class="field">
+        <label>Time period </label>
+        {{ form.period }}
+      </div>
+    </div>
+    <div class="field">
+    	<label>Description</label>
+    	{{ form.description }}
+    </div>
+  </div>
+    <div class="field">
+      <button type="submit" class="ui mini button blue">{% if not object.pk %} <i class="icon plus"></i> Add New {% else %} <i class="icon Check"> </i>Update {% endif %}  </button>
+      <a class="ui button green mini" style="float:right;" href="{% if not object.pk %}./{% else %}./../ {% endif %}" > <i class="icon undo"></i> Experience </a>	            
+    </div>
+</form>
+
+{% endblock %}

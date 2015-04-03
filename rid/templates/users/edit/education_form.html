@@ -1,0 +1,42 @@
+{% extends "users/edit/base.html" %}
+{% block edit_title %} Education &raquo; {% if not object.pk %} Add New {% else %} Update #{{ object.pk }} {% endif %}  {% endblock %}
+{% block edit_title1 %} Education &raquo; {% if not object.pk %} Add New {% else %} Update #{{ object.pk }} {% endif %} {% endblock %}
+{% block edit_icon %} University {% endblock %}
+{% block education %} active {% endblock %}
+{% block edit_body %}
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="ui form">
+    
+    <div class="field">
+      <label>School / College / University </label>
+      {{ form.school }}
+    </div>
+    <div class="two fields">
+      <div class="field">
+	<label> Period / During  </label>
+	{{ form.period }}
+      </div>
+      <div class="field">
+	<label> Degree   </label>
+	{{ form.degree }}
+      </div>
+    </div>
+    <div class="two fields">
+      <div class="field">
+	<label>Field of Study / Stream </label>
+	{{ form.stream }}
+      </div>
+      <div class="field">
+	<label>Grade / Score </label>
+	{{ form.grade }}
+      </div>
+    </div>
+    <div class="field">
+      <button type="submit" class="ui mini button blue">{% if not object.pk %} <i class="icon plus"></i> Add New {% else %} <i class="icon Check"> </i>Update {% endif %}  </button>
+      <a class="ui button green mini" style="float:right;" href="{% if not object.pk %}./{% else %}./../ {% endif %}" > <i class="icon undo"></i> Education </a>	            
+    </div>
+  </div>
+</form>
+
+{% endblock %}

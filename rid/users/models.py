@@ -116,6 +116,7 @@ class UserRole(models.Model):
     
 
 class Education(models.Model):
+
     school = models.CharField(
         verbose_name = "School / College / University",
         max_length = 128,

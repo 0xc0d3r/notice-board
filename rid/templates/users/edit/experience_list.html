@@ -1,0 +1,38 @@
+{% extends "users/edit/base.html" %}
+{% block edit_title %} Experience {% endblock %}
+{% block edit_title1 %} Experience {% endblock %}
+{% block edit_icon %} flag {% endblock %}
+{% block experience %} active {% endblock %}
+{% block edit_body %}
+{% if object_list.count %}
+        <div class="ui feed">
+        {% for exp in object_list  %}
+        <div class="event">
+    <div class="label">
+        <i class="icon flag"></i>
+    </div>
+    <div class="content">
+      <div class="summary"> 
+        {{ exp.title }}
+        <a style="float:right;" href="/users/{{ user.rid }}/edit/experience/{{ exp.id }}/update"><i class="icon edit"></i> </a>
+        <a style="float:right;" href="/users/{{ user.rid }}/edit/experience/{{ exp.id }}/delete"><i class="icon trash"></i> </a> 
+        <div class="date">
+          {{ exp.period }}
+          
+        </div>
+      </div>
+      <div class="extra text">
+        {{ exp.description }}
+      </div>
+      <div class="meta">
+        @ {{ exp.organization }} - {{ exp.location }}
+      </div>
+    </div>
+        </div>
+        {% endfor %}
+        </div>
+        {% else %}
+        <h5>No Experiences Information provided</h5>
+        {% endif %}
+<a class="ui button blue mini icon" href="/users/{{ user.rid }}/edit/experience/add"><i class="icon plus"></i> Add New</a>
+{% endblock %}

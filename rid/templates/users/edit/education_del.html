@@ -1,0 +1,15 @@
+{% extends "users/edit/base.html" %}
+{% block edit_title %} Education &raquo; {% if not object.pk %} Add New {% else %} Delete #{{ object.pk }} {% endif %}  {% endblock %}
+{% block edit_title1 %} Education &raquo; {% if not object.pk %} Add New {% else %} Delete #{{ object.pk }} {% endif %} {% endblock %}
+{% block edit_icon %} University {% endblock %}
+{% block education %} active {% endblock %}
+{% block edit_body %}
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+  
+  <h4 class="ui header"> Are you sure ?</h4>
+  <button type="submit" class="ui tiny button negative" style="float:right"><i class="trash icon"></i> Confirm Delete</button>
+  <a class="positive ui button tiny" style="float:right" href="{% url 'education_list' slug=user.rid %}"><i class="icon Arrow Left"></i> Cancel </a>
+</form>
+
+{% endblock %}

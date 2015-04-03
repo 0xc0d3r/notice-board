@@ -25,15 +25,15 @@
     <td class="center aligned" width="20%">{{ edu.stream }}</td>
     <td class="center aligned" width="5%">{{ edu.grade }}</td>
     <td class="center aligned" width="10%">
-	<a class="ui button green icon" href="/users/{{ user.rid }}/edit/education/{{ edu.id }}/update"><i class="icon edit"></i></a> 
-	<a class="ui button red icon" href="/users/{{ user.rid }}/edit/education/{{ edu.id }}/delete"><i class="icon trash"></i></a>
+	<a class="ui green " href="/users/{{ user.rid }}/edit/education/{{ edu.id }}/update"><i class="icon edit"></i></a> 
+	<a class="ui red" href="/users/{{ user.rid }}/edit/education/{{ edu.id }}/delete"><i class="icon trash"></i></a>
     </td>		   
   </tr>
   {% endfor %}
 </tbody>
 </table>
-<a class="ui button blue icon" href="/users/{{ user.rid }}/edit/education/add"><i class="icon plus"></i> Add New</a>
 {% else %}
-No Educational Information provided
+<h5>No Educational Information provided</h5>
 {% endif %}
+<a class="ui button blue mini icon" href="/users/{{ user.rid }}/edit/education/add"><i class="icon plus"></i> Add New</a>
 {% endblock %}

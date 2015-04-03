@@ -1,0 +1,22 @@
+{% extends "users/edit/base.html" %}
+{% block edit_title %} Interested Areas &raquo; Add {% endblock %}
+{% block edit_title1 %} Interested Areas &raquo; Add {% endblock %}
+{% block edit_icon %} tags {% endblock %}
+{% block areas %} active {% endblock %}
+{% block edit_body %}
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="ui form">
+    
+    <div class="field">
+      <label> Interested Areas Name </label>
+      {{ form.title }}
+    </div>
+    <div class="field">
+      <button type="submit" class="ui mini button green"><i class="icon plus"> </i>Add Area  </button>
+      <a class="ui button blue mini" style="float:right;" href="./" > <i class="icon undo"></i> Update Areas </a>	      
+    </div>
+  </div>
+</form>
+
+{% endblock %}

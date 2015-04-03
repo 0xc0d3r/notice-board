@@ -11,6 +11,7 @@
 	    $('.message .close').on('click', function() {
 		$(this).closest('.message').fadeOut();
 	    });
+	    $('.checkbox').checkbox();
 	});
     	
       </script>
@@ -37,10 +38,10 @@
 	<a class="item {% block contact_info %}{% endblock %}" href="/users/{{ user.rid }}/edit/contact_info/"><i class="icon Mobile "></i> Contact Info </a>
 	<a class="item {% block profile_pic %}{% endblock %}" href="/users/{{ user.rid }}/edit/profile_pic/"><i class="icon photo "></i> Profile Pic </a>
 	<a class="item {% block education  %}{% endblock %}" href="/users/{{ user.rid }}/edit/education/"><i class="icon University "></i> Education  </a>
-	<a class="item {% block exp %}{% endblock %}"><i class="icon flag"></i> Experiences </a>
+	<a class="item {% block experience %}{% endblock %}" href="/users/{{ user.rid}}/edit/experience"><i class="icon flag"></i> Experiences </a>
 	<a class="item {% block roles %}{% endblock %}"><i class="icon road"></i> Position & Roles </a>
-	<a class="item {% block areas %}{% endblock %}"><i class="icon tags"></i> Interested Areas </a>
-	<a class="item {% block tech %}{% endblock %}"><i class="icon tree"></i> Technical Skills </a>
+	<a class="item {% block areas %}{% endblock %}" href="/users/{{ user.rid }}/edit/areas/"><i class="icon tags"></i> Interested Areas </a>
+	<a class="item {% block skills %}{% endblock %}" href="/users/{{ user.rid }}/edit/skills/"><i class="icon tree"></i> Technical Skills </a>
 	<a class="item {% block achv %}{% endblock %}"><i class="icon flag"></i> Achievements </a>
       </div>
     </div>
