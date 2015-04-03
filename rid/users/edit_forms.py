@@ -1,5 +1,5 @@
 from django import forms
-from users.models import Profile,Skill, Area, Education, Experience
+from users.models import Profile,Skill, Area, Education, Experience, Achievement
 from django.forms.widgets import CheckboxSelectMultiple  
 
 class ProfilePicForm(forms.ModelForm):
@@ -73,3 +73,9 @@ class ExperienceForm(forms.ModelForm):
         model = Experience
         exclude = ("user",)
         fields=['organization','title','location','period','description']
+
+class AchievementForm(forms.ModelForm):
+    class Meta:
+        model = Achievement
+        exclude = ("user",)
+        fields=['issuer','title','location','period','description']

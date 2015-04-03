@@ -1,0 +1,38 @@
+{% extends "users/edit/base.html" %}
+{% block edit_title %} Achievement {% endblock %}
+{% block edit_title1 %} Achievement {% endblock %}
+{% block edit_icon %} flag {% endblock %}
+{% block achv %} active {% endblock %}
+{% block edit_body %}
+{% if object_list.count %}
+        <div class="ui feed">
+        {% for ach in object_list  %}
+        <div class="event">
+    <div class="label">
+        <i class="icon flag"></i>
+    </div>
+    <div class="content">
+      <div class="summary"> 
+        {{ ach.title }}
+        <a style="float:right;" href="/users/{{ user.rid }}/edit/achievements/{{ ach.id }}/update"><i class="icon edit"></i> </a>
+        <a style="float:right;" href="/users/{{ user.rid }}/edit/achievements/{{ ach.id }}/delete"><i class="icon trash"></i> </a> 
+        <div class="date">
+          {{ ach.period }}
+          
+        </div>
+      </div>
+      <div class="extra text">
+        {{ ach.description }}
+      </div>
+      <div class="meta">
+        @ {{ ach.organization }} - {{ ach.location }}
+      </div>
+    </div>
+        </div>
+        {% endfor %}
+        </div>
+        {% else %}
+        <h5>No Achievement Information provided</h5>
+        {% endif %}
+<a class="ui button blue mini icon" href="/users/{{ user.rid }}/edit/achievements/add"><i class="icon plus"></i> Add New</a>
+{% endblock %}
