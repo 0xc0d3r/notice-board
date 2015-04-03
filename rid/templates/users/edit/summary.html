@@ -1,0 +1,20 @@
+{% extends "users/edit/base.html" %}
+{% block edit_title %} Summary &raquo;  Update  {% endblock %}
+{% block edit_title1 %} Summary &raquo;  Update {% endblock %}
+{% block edit_icon %} tree {% endblock %}
+{% block summary %} active {% endblock %}
+{% block edit_body %}
+<form method="post" action="" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="ui form">
+    <div class="field">
+    	<label>Summary</label>
+    	{{ form.summary }}
+    </div>
+  </div>
+    <div class="field">
+      <button type="submit" class="ui mini button blue"><i class="icon Check"> </i>Update </button>
+    </div>
+</form>
+
+{% endblock %}

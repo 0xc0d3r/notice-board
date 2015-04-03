@@ -79,3 +79,8 @@ class AchievementForm(forms.ModelForm):
         model = Achievement
         exclude = ("user",)
         fields=['issuer','title','location','period','description']
+
+class SummaryForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields=['summary']

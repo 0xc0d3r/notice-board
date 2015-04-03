@@ -20,7 +20,7 @@
       <div {% if message.tags %} class="ui message {{ message.tags }}"{% endif %}><i class="close icon"></i>{{ message }}</div>
       {% endfor %}
       {% endif %}
-      <div class="ui blue segment " style="padding:2%;min-height:337px;">
+      <div class="ui blue segment " style="padding:2%;min-height:360px;">
 	<h5 class="ui header dividing "><i class="icon {% block edit_icon %}{% endblock %} "></i>Edit Profile &raquo; {% block edit_title1 %}{% endblock %}</h5>
 	{% if form.errors %}
 	{% for error in form.errors %}
@@ -43,6 +43,7 @@
 	<a class="item {% block areas %}{% endblock %}" href="/users/{{ user.rid }}/edit/areas/"><i class="icon tags"></i> Interested Areas </a>
 	<a class="item {% block skills %}{% endblock %}" href="/users/{{ user.rid }}/edit/skills/"><i class="icon tree"></i> Technical Skills </a>
 	<a class="item {% block achv %}{% endblock %}" href="/users/{{ user.rid}}/edit/achievements"><i class="icon flag"></i> Achievements </a>
+	<a class="item {% block summary %}{% endblock %}" href="/users/{{ user.rid}}/edit/summary"><i class="icon tree"></i> Summary </a>
       </div>
     </div>
   </div>

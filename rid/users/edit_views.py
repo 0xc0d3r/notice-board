@@ -7,7 +7,7 @@ from django.contrib import messages
 from users.models import Profile, Education, Skill, Area,Experience,Achievement
 from auth.models import RidUser
 from users.edit_forms import ProfilePicForm, ContactInfoForm, SkillsForm, AddSkillForm
-from users.edit_forms import AreasForm, AddAreaForm, EducationForm,ExperienceForm,AchievementForm
+from users.edit_forms import AreasForm, AddAreaForm, EducationForm,ExperienceForm,AchievementForm,SummaryForm
 
 class UpdateProfilePic(UpdateView):
     model = Profile
@@ -320,3 +320,24 @@ class DelAchievement(DeleteView):
     def get_success_url(self):
         messages.warning(self.request,'Achievement #%d deleted successfully ' % int(self.kwargs['pk']))
         return reverse('achievement_list', kwargs={'slug':self.request.user})
+
+
+#Summary views starts here
+
+
+class UpdateSummary(UpdateView):
+    model = Profile
+    template_name = "users/edit/summary.html"
+    form_class = SummaryForm
+
+
+    def get_object(self, queryset=None):
+        if(self.request.user.rid != self.kwargs['slug']):
+            raise PermissionDenied("Not allwoed to Edit others profile")
+                
+        return Profile.objects.get(user=RidUser.objects.get(rid=self.request.user.rid))
+    
+    def get_success_url(self):
+        messages.success(self.request,'Summary updated successfully ')
+        return reverse('summary_update', kwargs={'slug':self.request.user})
+
